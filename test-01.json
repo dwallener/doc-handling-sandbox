@@ -1,0 +1,16 @@
+{
+  "document": {
+    "section 1": {
+      "text" : "Level 1 sample text",
+      "level": "1"
+    },
+    "section 2": {
+      "text": "Level 2 sample text",
+      "level": "2"
+    },
+    "section 3": {
+      "text": "Level 3 sample text",
+      "level": "3"
+    }
+  }
+}
