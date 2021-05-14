@@ -15,8 +15,10 @@ response = requests.post(host_address + "/get_key",json=id_json)
 print(response.content)
 
 response = requests.post(host_address + "/get_document",json=id_json)
-print(response.content)
-
+response_json = json.loads(response.content)
+print(response_json['document']['section 1'])
+print(response_json['document']['section 2'])
+print(response_json['document']['section 3'])
 # let's display in a window
 
 import tkinter as tk
