@@ -6,6 +6,7 @@ import ast
 import json
 from flask import Flask
 from flask import request
+from flask import jsonify
 
 app = Flask(__name__)
 
@@ -44,6 +45,7 @@ def document_input():
 @app.route('/get_key', methods=['GET','POST'])
 def get_key():
     req = request.get_json()
+    print("Key Setup")
     print("Client ID: ", req["client_id"])
     print("Security Level: ", req["enc_level"])
     return 'Processed key request...'
@@ -52,6 +54,7 @@ def get_key():
 @app.route('/get_document', methods=['POST','GET'])
 def get_document():
     req = request.get_json()
+    print("Document request")
     print("Client ID: ", req["client_id"])
     print("Security Level: ", req["enc_level"])
 
@@ -61,7 +64,7 @@ def get_document():
             data = f.read()
             data_dict = ast.literal_eval(data)
             print(data_dict)
-            data_dict['document']['section 1']['text'] = decrypt_block(data_dict['document']['section 1']['text'], 1)
+            data_dict['document']['section 1']['text'] = str(decrypt_block(data_dict['document']['section 1']['text'], 1))
             print(data_dict)
 
     if req["client_id"] == "client_2" :
@@ -70,8 +73,8 @@ def get_document():
             data = f.read()
             data_dict = ast.literal_eval(data)
             print(data_dict)
-            data_dict['document']['section 1']['text'] = decrypt_block(data_dict['document']['section 1']['text'], 1)
-            data_dict['document']['section 2']['text'] = decrypt_block(data_dict['document']['section 2']['text'], 2)
+            data_dict['document']['section 1']['text'] = str(decrypt_block(data_dict['document']['section 1']['text'], 1))
+            data_dict['document']['section 2']['text'] = str(decrypt_block(data_dict['document']['section 2']['text'], 2))
             print(data_dict)
 
     if req["client_id"] == "client_3":
@@ -80,9 +83,14 @@ def get_document():
             data = f.read()
             data_dict = ast.literal_eval(data)
             print(data_dict)
-            data_dict['document']['section 1']['text'] = decrypt_block(data_dict['document']['section 1']['text'], 1)
-            data_dict['document']['section 2']['text'] = decrypt_block(data_dict['document']['section 2']['text'], 2)
-            data_dict['document']['section 3']['text'] = decrypt_block(data_dict['document']['section 3']['text'], 3)
+            data_dict['document']['section 1']['text'] = str(decrypt_block(data_dict['document']['section 1']['text'], 1))
+            data_dict['document']['section 2']['text'] = str(decrypt_block(data_dict['document']['section 2']['text'], 2))
+            data_dict['document']['section 3']['text'] = str(decrypt_block(data_dict['document']['section 3']['text'], 3))
             print(data_dict)
 
-    return 'Processed document request...'
+    print(type(data_dict))
+    data_json = json.dumps(data_dict, default=lambda x: None)
+    print(type(data_json))
+
+    #return 'Processed document request...'
+    return data_json

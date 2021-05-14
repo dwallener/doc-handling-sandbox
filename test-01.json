@@ -1,15 +1,15 @@
 {
   "document": {
     "section 1": {
-      "text" : "Level 1 sample text",
+      "text" : "Ongoing news reports in the international media have revealed operational details about the Anglophone cryptographic agencies' global surveillance[1] of both foreign and domestic nationals. The reports mostly emanate from a cache of top secret documents leaked by ex-NSA contractor Edward Snowden, which he obtained whilst working for Booz Allen Hamilton, one of the largest contractors for defense and intelligence in the United States.",
       "level": "1"
     },
     "section 2": {
-      "text": "Level 2 sample text",
+      "text": "These media reports have shed light on the implications of several secret treaties signed by members of the UKUSA community in their efforts to implement global surveillance. For example, Der Spiegel revealed how the German Federal Intelligence Service transfers \"massive amounts of intercepted data to the NSA\", while Swedish Television revealed the National Defence Radio Establishment (FRA) provided the NSA with data from its cable collection, under a secret treaty signed in 1954 for bilateral cooperation on surveillance.",
       "level": "2"
     },
     "section 3": {
-      "text": "Level 3 sample text",
+      "text": "On June 14, 2013, United States prosecutors charged Edward Snowden with espionage and theft of government property.",
       "level": "3"
     }
   }
